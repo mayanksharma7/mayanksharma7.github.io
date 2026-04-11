@@ -143,11 +143,14 @@ p.lead {
   border: 1px solid rgba(243, 243, 243, 0.14);
   overflow: hidden;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  transform: translateZ(0);
+  transition: box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
 .social-icons a i {
   display: block;
+  transform: translateZ(0);
+  transition: transform 0.2s ease;
 }
 
 .social-icons a:last-child {
@@ -156,8 +159,13 @@ p.lead {
 
 .social-icons a:hover {
   background: linear-gradient(135deg, #02eaea 0%, #0057ff 55%, #7233f7 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 18px 34px rgba(114, 51, 247, 0.28);
+  border-color: rgba(2, 234, 234, 0.55);
+  box-shadow: 0 0 0 4px rgba(114, 51, 247, 0.12), 0 16px 34px rgba(114, 51, 247, 0.28);
+}
+
+.social-icons a:hover i,
+.social-icons a:focus i {
+  transform: scale(1.05);
 }
 
 .dev-icons {
