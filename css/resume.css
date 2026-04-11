@@ -4,10 +4,35 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-resume/blob/master/LICENSE)
  */
 
+html {
+  min-height: 100%;
+  background-color: #080225;
+  background:
+    radial-gradient(circle at top right, rgba(114, 51, 247, 0.16), transparent 24%),
+    radial-gradient(circle at 20% 20%, rgba(2, 234, 234, 0.1), transparent 18%),
+    linear-gradient(180deg, #080225 0%, #080225 100%);
+}
+
 body {
   font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   padding-top: 54px;
-  color: #868e96;
+  min-height: 100vh;
+  color: #f3f3f3;
+  background-color: transparent;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top right, rgba(114, 51, 247, 0.16), transparent 24%),
+    radial-gradient(circle at 20% 20%, rgba(2, 234, 234, 0.1), transparent 18%),
+    linear-gradient(180deg, #080225 0%, #080225 100%);
 }
 
 @media (min-width: 992px) {
@@ -26,7 +51,7 @@ h6 {
   font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   font-weight: 700;
   text-transform: uppercase;
-  color: #343a40;
+  color: #f3f3f3;
 }
 
 h1 {
@@ -43,28 +68,86 @@ h3 {
 }
 
 p.lead {
-  font-size: 1.15rem;
-  font-weight: 400;
+  font-size: 1.18rem;
+  font-weight: 500;
+  line-height: 1.9;
 }
 
 .subheading {
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 700;
   font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  font-size: 1.5rem;
+  font-size: 1.35rem;
+  color: #7233f7;
+  letter-spacing: 0.08em;
+}
+
+.subheading a {
+  color: inherit;
+}
+
+.subheading a:hover,
+.subheading a:focus {
+  color: #02eaea;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(114, 51, 247, 0.16);
+  color: #7233f7;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(114, 51, 247, 0.24);
+}
+
+.profile-panel {
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(180deg, rgba(8, 2, 37, 0.94) 0%, rgba(8, 2, 37, 0.98) 100%);
+  border: 1px solid rgba(243, 243, 243, 0.08);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(12px);
+}
+
+.profile-highlights {
+  margin-left: 0;
+}
+
+.profile-highlights li {
+  margin: 0 0.75rem 0.75rem 0;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(243, 243, 243, 0.08);
+  color: #f3f3f3;
+  font-weight: 700;
+  border: 1px solid rgba(114, 51, 247, 0.22);
 }
 
 .social-icons a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   height: 3.5rem;
   width: 3.5rem;
-  background-color: #495057;
+  background: linear-gradient(135deg, #7233f7 0%, #0057ff 100%);
   color: #fff !important;
   border-radius: 100%;
   text-align: center;
-  font-size: 1.5rem;
-  line-height: 3.5rem;
+  font-size: 1.35rem;
+  line-height: 1;
   margin-right: 1rem;
+  border: 1px solid rgba(243, 243, 243, 0.14);
+  overflow: hidden;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.social-icons a i {
+  display: block;
 }
 
 .social-icons a:last-child {
@@ -72,7 +155,9 @@ p.lead {
 }
 
 .social-icons a:hover {
-  background-color: #BD5D38;
+  background: linear-gradient(135deg, #02eaea 0%, #0057ff 55%, #7233f7 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(114, 51, 247, 0.28);
 }
 
 .dev-icons {
@@ -80,17 +165,25 @@ p.lead {
 }
 
 .dev-icons .list-inline-item i:hover {
-  color: #BD5D38;
+  color: #7233f7;
 }
 
 #sideNav .navbar-nav .nav-item .nav-link {
   font-weight: 800;
   letter-spacing: 0.05rem;
   text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+#sideNav .navbar-nav .nav-item .nav-link:hover,
+#sideNav .navbar-nav .nav-item .nav-link:focus {
+  color: #7233f7;
+  transform: translateX(2px);
 }
 
 #sideNav .navbar-toggler:focus {
-  outline-color: #d48a6e;
+  outline-color: #7233f7;
 }
 
 @media (min-width: 992px) {
@@ -108,6 +201,11 @@ p.lead {
     flex-direction: column;
     width: 17rem;
     height: 100vh;
+    background:
+      radial-gradient(circle at top, rgba(2, 234, 234, 0.12), transparent 22%),
+      radial-gradient(circle at 30% 18%, rgba(114, 51, 247, 0.18), transparent 26%),
+      linear-gradient(180deg, #080225 0%, #080225 100%);
+    box-shadow: 18px 0 48px rgba(0, 0, 0, 0.28);
   }
   #sideNav .navbar-brand {
     display: -webkit-box;
@@ -119,7 +217,8 @@ p.lead {
   #sideNav .navbar-brand .img-profile {
     max-width: 10rem;
     max-height: 10rem;
-    border: 0.5rem solid rgba(255, 255, 255, 0.2);
+    border: 0.35rem solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 20px 42px rgba(0, 0, 0, 0.34);
   }
   #sideNav .navbar-collapse {
     display: -webkit-box;
@@ -155,8 +254,85 @@ section.resume-section {
   max-width: 75rem;
 }
 
+section.resume-section p {
+  color: rgba(243, 243, 243, 0.9);
+}
+
+section.resume-section .w-100 > h2 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 3rem !important;
+}
+
+section.resume-section .w-100 > h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  width: 5rem;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7233f7 0%, #7233f7 45%, #0057ff 100%);
+}
+
+section.resume-section .resume-item {
+  padding: 1.5rem 1.6rem;
+  margin-bottom: 1.75rem !important;
+  border-radius: 1.25rem;
+  background: linear-gradient(180deg, rgba(8, 2, 37, 0.9) 0%, rgba(8, 2, 37, 0.96) 100%);
+  border: 1px solid rgba(243, 243, 243, 0.08);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+}
+
 section.resume-section .resume-item .resume-date {
   min-width: none;
+}
+
+section.resume-section .resume-item p:last-child {
+  margin-bottom: 0;
+}
+
+.resume-date .text-primary {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(114, 51, 247, 0.16);
+  border: 1px solid rgba(114, 51, 247, 0.22);
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+#certifications .resume-item .resume-content > h3 a,
+#publications .resume-item .resume-content > h3 a {
+  color: #f3f3f3;
+}
+
+#certifications .resume-item .resume-content > h3 a:hover,
+#certifications .resume-item .resume-content > h3 a:focus,
+#publications .resume-item .resume-content > h3 a:hover,
+#publications .resume-item .resume-content > h3 a:focus {
+  color: #02eaea;
+}
+
+#certifications .resume-item .resume-content > p a {
+  color: #02eaea;
+  font-weight: 700;
+}
+
+#certifications .resume-item .resume-content > p a:hover,
+#certifications .resume-item .resume-content > p a:focus {
+  color: #f3f3f3;
+}
+
+#certifications .resume-item .resume-content,
+#publications .resume-item .resume-content {
+  color: rgba(243, 243, 243, 0.92);
+}
+
+#certifications .resume-item .subheading,
+#publications .resume-item .subheading {
+  color: #f3f3f3;
+  opacity: 0.88;
 }
 
 @media (min-width: 768px) {
@@ -176,17 +352,55 @@ section.resume-section .resume-item .resume-date {
 }
 
 .bg-primary {
-  background-color: #BD5D38 !important;
+  background-color: #080225 !important;
 }
 
 .text-primary {
-  color: #BD5D38 !important;
+  color: #7233f7 !important;
 }
 
 a {
-  color: #BD5D38;
+  color: #7233f7;
+  text-decoration: none;
 }
 
 a:hover, a:focus, a:active {
-  color: #824027;
+  color: #02eaea;
+}
+
+hr.m-0 {
+  border-top: 1px solid rgba(243, 243, 243, 0.08);
+}
+
+.fa-ul {
+  margin-left: 1.75rem;
+}
+
+.fa-ul li {
+  margin-bottom: 1rem;
+}
+
+.text-warning {
+  color: #02eaea !important;
+}
+
+.footer {
+  padding: 1.5rem 0 2rem;
+  color: rgba(243, 243, 243, 0.7);
+  background: transparent;
+}
+
+@media (max-width: 991.98px) {
+  #sideNav {
+    background: linear-gradient(90deg, #080225 0%, #080225 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+  }
+
+  .profile-panel {
+    padding: 1.5rem;
+  }
+
+  section.resume-section .resume-item {
+    padding: 1.25rem;
+  }
 }
